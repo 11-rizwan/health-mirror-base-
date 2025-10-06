@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Home - AI Health Mirror{% endblock %}
+
+{% block content %}
+<div class="container landing-container">
+
+    <header class="animate-slide-in">
+        <h1>Welcome to the AI Health Mirror</h1>
+        <p style="font-size: 1.2rem; color: #555;">Your real-time wellness companion, designed to help you stay mindful of your emotional and physical state throughout the day.</p>
+    </header>
+    
+    <div class="card auth-card animate-slide-in">
+        <h2>What is the AI Health Mirror?</h2>
+        <p class="cont">Utilizes your device’s camera and advanced AI to monitor facial landmarks and expressions.<br>
+        Accurately detects emotions and early signs of fatigue by analyzing eye movement and facial tension.<br>
+        Offers real-time, thoughtful wellness reminders to help you manage stress and maintain focus.<br>
+        Designed to encourage healthier screen-time habits, especially for those with long work or study hours.<br>
+        .....</p>
+        <div class="mirrorbtn"><a href="/monitoring" class="btn">Launch the Mirror</a></div>
+        
+    </div>
+
+    <div class="features-grid">
+        <div class="animate-slide-in">
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Real-Time Emotion Analysis:</strong> Detects 7 different emotions to help you stay aware of your mood.</li>
+                <li><strong>Intelligent Fatigue Detection:</strong> Monitors eye closure to gently alert you when it's time for a screen break.</li>
+                <li><strong>Dynamic Wellness Score:</strong> Get a simple, live score that reflects your current state.</li>
+                <li><strong>Personalized Recommendations:</strong> Receive simple, actionable tips based on your analysis.</li>
+                <li><strong>Session History:</strong> Track your wellness trends over time with our history log and charts.</li>
+            </ul>
+        </div>
+
+        <div class="animate-slide-in">
+            <h3>Who is this for?</h3>
+            <p>The AI Health Mirror is perfect for:</p>
+            <ul>
+                <li><strong>Remote Professionals:</strong> Maintain well-being and avoid burnout during long work-from-home sessions.</li>
+                <li><strong>Students & E-Learners:</strong> Get reminders to take breaks and manage stress during intense study periods.</li>
+                <li><strong>Developers & Gamers:</strong> Stay mindful of physical strain during long hours of high focus.</li>
+                <li><strong>Anyone interested in Mindfulness:</strong> Use it as a tool to become more connected with your emotional state.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <p style="margin-top: 40px; color: var(--secondary-color);">&copy; 2025 AI Health Mirror Project</p>
+    </footer>
+</div>
+{% endblock %}

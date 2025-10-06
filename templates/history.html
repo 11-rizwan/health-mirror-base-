@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Session History - AI Health Mirror{% endblock %}
+
+{% block head_extra %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container history-container">
+    <div class="animate-slide-in">
+    <header>
+        <h1>Session History</h1>
+        <p>Review your past wellness sessions to track trends over time.</p>
+    </header>
+
+    <div class="card animate-fade-in-up">
+        <h2>Health Score Over Time</h2>
+        <canvas id="history-chart" width="400" height="200"></canvas>
+    </div>
+
+    <div class="card animate-fade-in-up">
+        <h2>Recent Sessions</h2>
+        <div class="table-wrapper">
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Dominant Emotion</th>
+                        <th>Avg. Health Score</th>
+                        <th>Fatigue Events</th>
+                    </tr>
+                </thead>
+                <tbody id="history-table-body">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='history.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,283 @@
+/* static/css/style.css (Updated with Parallax and Fluid Animations) */
+
+/* --- Bright Monochromatic Purple Palette --- */
+:root {
+    --bg-color: #f8f7ff;
+    --panel-color: #FFFFFF;
+    --text-color: #333;
+    --heading-color: #4c418c;
+    --primary-color: #8a78ff;
+    --primary-color-dark: #6c5de3;
+    --highlight-color: #e3e0ff;
+    --shadow-color: rgba(108, 93, 227, 0.1);
+    --border-color: #dcd9f6;
+    --accent-color-alert: #E63946;
+    /* Custom timing function for smooth transitions */
+    --fluid-cubic-bezier: cubic-bezier(0.30, 0.95, 0.30, 1.5);
+}
+
+/* --- NEW Animation Keyframes --- */
+@keyframes subtle-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.animate-slide-in {
+    animation: subtle-slide-in 1.0s var(--fluid-cubic-bezier) forwards;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.5s ease-out;
+}
+
+/* --- Base & Parallax Styles --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    
+    /* NEW: Parallax Background Effect */
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(circle at 100% 0%, hsla(248, 100%, 95%, 0.5) 0%, transparent 30%),
+        radial-gradient(circle at 0% 100%, hsla(248, 100%, 92%, 0.6) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6, .nav-brand {
+    font-family: 'Poppins', sans-serif;
+    color: var(--heading-color);
+}
+.cont{
+    margin-left: 5%;
+}
+.container {
+    width: 65%;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+/* --- Navbar Styles --- */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    position: fixed;
+    width: 100%;
+    padding: 0 5%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.4s var(--fluid-cubic-bezier); /* Fluid transition */
+}
+
+.nav-link:hover {
+    color: var(--primary-color-dark);
+    background-color: var(--highlight-color);
+}
+
+/* --- Main Content & Cards --- */
+.main-content {
+    padding: 100px 20px 20px 20px;
+}
+
+.card {
+    background-color: var(--panel-color);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    border: 0.5px solid var(--border-color);
+    transition: all 0.4s var(--fluid-cubic-bezier); /* Fluid transition */
+    
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px var(--shadow-color);
+}
+
+/* --- Button Styles --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+    transition: all 0.4s var(--fluid-cubic-bezier); /* Fluid transition */
+    box-shadow: 0 4px 15px rgba(108, 93, 227, 0.25);
+}
+
+.btn:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(108, 93, 227, 0.4);
+}
+
+.btn-nav {
+    padding: 0.5rem 1rem;
+    font-weight: 400;
+}
+.mirrorbtn {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    
+}
+
+/* --- Auth Forms & Flash Messages --- */
+.auth-container { max-width: 450px; margin-top: 2rem; }
+.app-container:hover{transform: translateY(-5px);
+    box-shadow: 0 12px 35px var(--shadow-color);}
+.auth-card h2 { text-align: left; margin-top: 0; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 700; }
+.form-group input { width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; transition: box-shadow 0.4s var(--fluid-cubic-bezier); } /* Fluid transition */
+.form-group input:focus { outline: none; box-shadow: 0 0 0 3px var(--highlight-color); }
+.auth-switch { text-align: center; margin-top: 1.5rem; }
+.flash-messages { max-width: 1200px; margin: -10px auto 20px auto; }
+.flash { padding: 1rem; border-radius: 8px; text-align: center; margin-bottom: 1rem; }
+.flash.success { background-color: #d4edda; color: #155724; }
+.flash.error { background-color: #f8d7da; color: #721c24; }
+
+/* --- App-Specific Styles --- */
+.app-container { display: flex; gap: 30px; justify-content: center; }
+.video-wrapper { flex: 2; min-width: 600px; text-align: center; }
+#video { border-radius: 8px;margin-top: 15%; border: 2px solid var(--border-color); transform: scaleX(-1); max-width: 100%; height: auto; }
+.info-panel { flex: 1; min-width: 300px; }
+.table-wrapper { overflow-x: auto; }
+#history-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+#history-table th, #history-table td { padding: 12px 15px; border: 1px solid var(--border-color); text-align: left; }
+#history-table thead { background-color: var(--highlight-color); }
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .app-container { flex-direction: column; align-items: center; }
+    .video-wrapper, .info-panel { width: 100%; max-width: 680px; min-width: unset; }
+}
+
+@media (max-width: 768px) {
+    /* Hides the desktop menu. Requires JavaScript to create a functional hamburger menu. */
+    .nav-menu { display: none; }
+    .nav-container { padding: 0 1rem; }
+    h1 { font-size: 2rem; }
+}
+
+/* In static/css/style.css (add to the end) */
+
+/* --- Mobile Navigation & Hamburger Menu --- */
+.nav-toggle {
+    display: none; /* Hidden by default on desktop */
+    cursor: pointer;
+    width: 28px;
+    height: 22px;
+    position: relative;
+    z-index: 1001; /* Ensure it's above other nav elements */
+}
+
+.nav-toggle span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--heading-color);
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: all 0.25s ease-in-out;
+}
+
+.nav-toggle span:nth-child(1) { top: 0px; }
+.nav-toggle span:nth-child(2) { top: 9px; }
+.nav-toggle span:nth-child(3) { top: 18px; }
+
+/* Hamburger animation to 'X' */
+.nav-toggle.is-active span:nth-child(1) { top: 9px; transform: rotate(135deg); }
+.nav-toggle.is-active span:nth-child(2) { opacity: 0; left: -28px; }
+.nav-toggle.is-active span:nth-child(3) { top: 9px; transform: rotate(-135deg); }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .nav-menu-wrapper {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        background-color: var(--panel-color);
+        box-shadow: -5px 0px 20px rgba(0, 0, 0, 0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        padding-top: 100px;
+    }
+
+    .nav-menu-wrapper.is-active {
+        transform: translateX(0);
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+    }
+}

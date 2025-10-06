@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Live Monitoring - AI Health Mirror{% endblock %}
+
+{% block content %}
+<div class="container app-container">
+    
+    <div class="video-wrapper animate-fade-in-up">
+        <div class="animate-slide-in">
+        <video id="video" width="640" height="480" autoplay playsinline muted></video>
+        <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+        <div id="status-message">Initializing Webcam...</div>
+        <button id="end-session-btn" class="btn btn-alert">End & Save Session</button>
+        <button id="start-session-btn" class="btn" style="display: none;">Start New Session</button>
+        <div id="save-status"></div>
+        
+
+        </div>
+    </div>
+
+    <div class="info-panel animate-fade-in-up">
+        <div class="animate-slide-in">
+        <h2 >Real-Time Analysis</h2>
+        <div class="card info-card">
+            <p><strong>Emotion:</strong> <span id="emotion-text">--</span></p>
+        </div>
+        <div class="card info-card" id="fatigue-card">
+            <p><strong>Fatigue Alert:</strong> <span id="fatigue-alert">NO</span></p>
+        </div>
+        <div class="card info-card">
+            <h3>Health Score: <span id="health-score">--</span>/100</h3>
+        </div>
+        <div class="card recommendations-card">
+            <h3>Recommendations</h3>
+            <ul id="recommendations-list">
+                <li>Waiting for analysis...</li>
+            </ul>
+        </div>
+        
+        
+        </div>
+    </div>
+    
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+{% endblock %}
